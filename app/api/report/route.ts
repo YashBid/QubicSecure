@@ -34,7 +34,8 @@ export async function POST(request: NextRequest) {
         logger.info('ReportAPI', 'PDF report generated successfully');
 
         // Return PDF as downloadable file
-        return new NextResponse(pdfBuffer, {
+        // Convert Buffer → Uint8Array for BodyInit compatibility
+        return new NextResponse(new Uint8Array(pdfBuffer), {
             headers: {
                 'Content-Type': 'application/pdf',
                 'Content-Disposition': `attachment; filename="audit-report-${metadata.analysisId || 'report'}.pdf"`,
