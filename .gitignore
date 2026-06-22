@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build output
+.next/
+out/
+build/
+dist/
+
+# Production
+.vercel/
+
+# Environment files — NEVER commit real keys
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Runtime folders
+uploads/
+temp/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.pem
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# Scratch / debug scripts
+test-analyzer.js
+
+# Duplicate root-level files (moved to samples/)
+example.cpp
+test1.cpp
+test2.cpp
+test3.cpp
+test4.cpp
+test5.cpp
+test6.cpp
+TEST_FILES.md

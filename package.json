@@ -1,0 +1,35 @@
+{
+  "name": "qubic-audit-system",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.72.1",
+    "@google/generative-ai": "^0.24.1",
+    "groq-sdk": "^0.7.0",
+    "next": "14.2.29",
+    "openai": "^4.77.0",
+    "pdfkit": "^0.15.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/pdfkit": "^0.13.4",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.17",
+    "docx": "^9.7.1",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.2.29",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3"
+  }
+}
