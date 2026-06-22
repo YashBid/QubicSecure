@@ -8,8 +8,9 @@ export async function POST(request: NextRequest) {
     try {
         logger.info('UploadAPI', 'Received upload request');
 
-        // Always ensure uploads directory exists before writing
-        const uploadsDir = path.join(process.cwd(), 'uploads');
+        // On Vercel only /tmp is writable; locally use project folder
+        const base = process.env.VERCEL ? '/tmp' : process.cwd();
+        const uploadsDir = path.join(base, 'uploads');
         await fs.mkdir(uploadsDir, { recursive: true });
 
         const formData = await request.formData();

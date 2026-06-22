@@ -2,8 +2,10 @@ import crypto from 'crypto';
 import fs from 'fs/promises';
 import path from 'path';
 
-const UPLOAD_DIR = path.join(process.cwd(), 'uploads');
-const TEMP_DIR = path.join(process.cwd(), 'temp');
+// On Vercel (serverless), only /tmp is writable. Locally, use project uploads/temp folders.
+const TMP_BASE = process.env.VERCEL ? '/tmp' : process.cwd();
+const UPLOAD_DIR = path.join(TMP_BASE, 'uploads');
+const TEMP_DIR = path.join(TMP_BASE, 'temp');
 
 /**
  * Initialize storage directories
