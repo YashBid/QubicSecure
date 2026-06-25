@@ -11,8 +11,6 @@
 
 **Upload a Qubic C++ smart contract. Get a full security audit in under 30 seconds.**
 
-[📖 Research Paper](docs/RESEARCH_PAPER.md) · [🗺️ Roadmap](docs/PRODUCT_ROADMAP.md) · [🤝 Contribute](CONTRIBUTING.md) · [🐛 Report Bug](https://github.com/YOUR-USERNAME/qubicsecure/issues)
-
 </div>
 
 ---
