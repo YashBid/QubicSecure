@@ -31,7 +31,6 @@ QubicSecure scans Qubic C++ smart contracts for security vulnerabilities using p
 | 🔁 **Deduplication** | Cross-source finding merge so you never see the same issue twice |
 | 📄 **PDF Reports** | Professional, downloadable audit reports with executive summary |
 | ⚡ **< 30 Second Analysis** | From upload to full dashboard in under 30 seconds |
-| 🎨 **Modern UI** | Dark glassmorphism interface with animated pipeline visualiser |
 
 ---
 
@@ -100,31 +99,6 @@ npm run dev
 
 ---
 
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        QubicSecure                          │
-│                                                             │
-│  ┌────────────┐      ┌──────────────────────────────────┐  │
-│  │  Frontend  │      │          Analysis Pipeline        │  │
-│  │            │      │                                   │  │
-│  │ UploadZone │─────▶│  1. Static Analyzer               │  │
-│  │  Analysis  │      │     └─ 10 regex patterns          │  │
-│  │   Status   │      │                                   │  │
-│  │  Results   │      │  2. LLM Deep Scan                 │  │
-│  │ Dashboard  │      │     
-│  │  IssueCard │      │                                   │  │
-│  │   Charts   │◀─────│  3. Deduplication & Merge         │  │
-│  └────────────┘      │     └─ composite key algorithm    │  │
-│                       │                                   │  │
-│                       │  4. Risk Scoring Engine           │  │
-│                       │     └─ log-normalised 0-100       │  │
-│                       │                                   │  │
-│                       │  5. PDF Report Generator          │  │
-│                       └──────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-```
 
 **Tech Stack:** Next.js 14 · TypeScript · Tailwind CSS · Zod · PDFKit · Groq SDK
 
@@ -144,65 +118,7 @@ npm run dev
 
 ---
 
-## 📁 Project Structure
 
-```
-qubicsecure/
-├── app/
-│   ├── api/
-│   │   ├── analyze/route.ts      # Main analysis pipeline endpoint
-│   │   ├── upload/route.ts       # File upload handler
-│   │   └── report/route.ts       # PDF report endpoint
-│   ├── page.tsx                  # Main application page
-│   ├── layout.tsx                # App layout & metadata
-│   └── globals.css               # Design system & animations
-├── components/
-│   ├── UploadZone.tsx            # Drag-and-drop file upload
-│   ├── AnalysisStatus.tsx        # Animated pipeline progress tracker
-│   ├── ResultsDashboard.tsx      # Tabbed results view
-│   ├── IssueCard.tsx             # Individual vulnerability display
-│   └── ChartSection.tsx          # Severity distribution charts
-├── lib/
-│   ├── analyzers/
-│   │   ├── qubic-rules.ts        # 10 vulnerability pattern definitions
-│   │   ├── static-analyzer.ts    # Analysis coordinator
-│   │   ├── deduplicator.ts       # Cross-source finding merge
-│   │   └── external-api.ts       # External API integration stub
-│   ├── llm/
-│   │   ├── analyzer.ts           # Multi-provider LLM dispatcher
-│   │   ├── prompt.ts             # Audit system prompt & context builder
-│   │   └── validator.ts          # Zod schema validation for LLM output
-│   ├── scoring/
-│   │   └── risk-calculator.ts    # Severity-weighted risk scoring engine
-│   ├── pdf/
-│   │   ├── generator.ts          # Server-side PDF generation (PDFKit)
-│   │   └── client-generator.ts   # Client-side report builder
-│   ├── types/
-│   │   └── analysis.ts           # Shared TypeScript types & Zod schemas
-│   └── utils/
-│       ├── file-handler.ts       # Secure file read utilities
-│       └── logger.ts             # Structured logging
-├── samples/                      # Example contracts for testing
-│   ├── README.md                 # Sample descriptions & expected results
-│   ├── vulnerable-critical.cpp   # High-risk contract (do not deploy)
-│   ├── vulnerable-medium.cpp     # Medium-risk contract
-│   ├── safe-low.cpp              # Mostly safe contract
-│   ├── clean-zero.cpp            # Zero-vulnerability contract
-│   ├── safevault-hardened.cpp    # Hardened reference implementation
-│   └── config-store.cpp          # Minimal clean contract
-├── docs/
-│   ├── ARCHITECTURE.md           # Deep-dive system design
-│   ├── VULNERABILITY_PATTERNS.md # Pattern reference guide
-│   ├── PRODUCT_ROADMAP.md        # Feature roadmap & milestones
-│   └── RESEARCH_PAPER.md         # IEEE-style research paper
-├── .env.example                  # Environment variable template
-├── CONTRIBUTING.md               # Contribution guidelines
-├── CHANGELOG.md                  # Version history
-├── SECURITY.md                   # Security disclosure policy
-└── LICENSE                       # MIT License
-```
-
----
 
 ## 🧪 Sample Contracts
 
@@ -221,9 +137,7 @@ Try QubicSecure with the included sample contracts in [`samples/`](samples/):
 
 
 
-## 📄 License
 
-MIT © [Bid Sakshi](https://github.com/YOUR-USERNAME)
 
 ---
 
